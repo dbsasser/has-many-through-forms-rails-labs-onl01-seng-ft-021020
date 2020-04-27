@@ -6,8 +6,8 @@
   <% end %></p>
 </div>
 
-<% @post.comments.each do |comment| %>
-  <%= link_to comment.user.username, user_path(comment.user) %>
+<% @post.users.distinct.each do |user| %>
+  <%= link_to user.username, user_path(user) %>
 <% end %>
 
 <% @post.comments.each do |comment| %>
