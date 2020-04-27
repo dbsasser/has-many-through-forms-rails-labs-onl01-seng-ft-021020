@@ -6,6 +6,10 @@
   <% end %></p>
 </div>
 
+<% @post.comments.users.each do |user| %>
+  <%= link_to user.username, user_path(user) %>
+<% end %>
+
 <% @post.comments.each do |comment| %>
   <%= comment.user.username %> says: <%= comment.content %>
 <% end %>
