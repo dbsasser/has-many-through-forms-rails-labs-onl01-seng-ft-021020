@@ -6,12 +6,12 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :categories
 
   def categories_attributes=(category_attributes)
-    if !category_attributes.values.blank?
+
       category_attributes.values.each do |category_attribute|
-        category = Category.find_or_create_by(category_attribute)
+        category = Category.find_or_create_by(category_attribute) unless category_attribute.empty?
         self.categories << category
       end
-    end
+
   end
 
 end
